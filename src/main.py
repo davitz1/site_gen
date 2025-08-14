@@ -8,9 +8,11 @@ def main():
     dir_source = "./static"
     dir_destination = "./docs"
  
-    basepath = sys.argv[1]
-    if sys.argv[1] == "":
-        basepath = '/'
+    basepath =  '/'
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+    if not basepath.endswith('/'):
+        basepath = basepath + '/'
 
     copy_contents(dir_source, dir_destination)
     generate_pages_recursive('./content', 'template.html', './docs', basepath)

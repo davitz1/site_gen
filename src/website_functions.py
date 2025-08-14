@@ -66,7 +66,7 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path, bas
                 continue
         elif os.path.isdir(full_path):
             subdir = os.path.join(dest_dir_path, file)
-            os.mkdir(subdir)
+            os.makedirs(subdir, exist_ok=True)
             generate_pages_recursive(full_path, template_path, subdir, basepath)
 
 
